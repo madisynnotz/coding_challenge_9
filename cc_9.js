@@ -66,3 +66,25 @@ class Employee {
     console.log(mgr1.getDetails());
     console.log(`Bonus: $${mgr1.calculateBonus().toLocaleString()}`);
   })();
+
+  // Task 3: Creating a Company Class
+
+  class Company {
+    constructor(name) {
+        this.name = name;
+        this.employees = [];
+    }
+    
+    addEmployee(employee) {
+        this.employees.push(employee);
+    }
+    
+    listEmployees() {
+        this.employees.forEach(employee => console.log(employee.getDetails()));
+    }
+}
+
+const company = new Company("TechCorp");
+company.addEmployee(emp1);
+company.addEmployee(mgr1);
+company.listEmployees();
