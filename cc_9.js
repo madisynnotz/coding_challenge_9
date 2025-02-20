@@ -88,3 +88,16 @@ const company = new Company("TechCorp");
 company.addEmployee(emp1);
 company.addEmployee(mgr1);
 company.listEmployees();
+
+// Task 4: Implementing a Payroll System
+
+Company.prototype.calculateTotalPayroll = function() {
+    return this.employees.reduce((total, employee) => {
+        if (employee instanceof Manager) {
+            return total + employee.calculateAnnualSalary() + employee.calculateBonus();
+        }
+        return total + employee.calculateAnnualSalary();
+    }, 0);
+};
+
+console.log(company.calculateTotalPayroll());
